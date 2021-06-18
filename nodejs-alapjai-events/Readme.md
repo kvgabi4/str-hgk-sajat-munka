@@ -5,5 +5,5 @@ Egy webes alkalmazás során mindig szükség van Logger-re. Ennek a megvalósí
 
 Ezt a Logger class-t kell felhasználod a következő alkalmazás során, melyet szintén neked kell elkészíteni: <br>
 Az alkalmazás egy tetszőleges txt fájl tartalmát olvassa be stream segítségével, majd átalakítja úgy, hogy mindegyik szó első karaktere nagybetűs lesz, a kimenetet pedig elmenti egy új fájlba, aminek a neve az eredeti fájl neve összefűzve a Copy string-gel. A kiterjesztés .txt maradjon.<br>
-Amennyiben bármi hiba adódott, a Logger error metódusát kell meghívni, paraméterként átadva neki az error object message property-jének az értékét.
+Amennyiben bármi hiba adódott, a Logger error metódusát kell meghívni, paraméterként átadva neki az error object message property-jének az értékét.<br>
 Amennyiben nem volt hiba, a Logger success metódusát kell meghívni, paraméterként átadva neki a következő string-et: "File transform successful."
