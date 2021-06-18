@@ -1,14 +1,14 @@
-const { mkdir } = require('fs')
+const { mkdir, writeFile } = require('fs').promises
 
-const fileHandlerCallback = (err) => {
-    if (err) throw err
-    console.log('file process successful')
+const folderMaker = async (folder) => {
+  await mkdir(folder)
 }
 
-const folderAndFileMaker = ({ path, callback = fileHandlerCallback } = {}) => {
-    mkdir(path, callback)
+const fileMaker = async (file) => {
+  await writeFile(file, '')
 }
 
 module.exports = {
-    folderAndFileMaker
+  fileMaker,
+  folderMaker
 }
