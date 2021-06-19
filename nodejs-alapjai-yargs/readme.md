@@ -22,7 +22,7 @@ Az alkalmazás az alábbi parancssoros parancsokat fogadja:
 - lessthan : A parancs kilistázza a konzolra azokat a termékeket, amelyekből a paraméterként megadott darabszámnál kevesebb elérhető. Egy paramétert vár kötelezően:
   - paraméter neve: count
   - paraméter rövidítés: c
-  -  kötelező: igen
+  - kötelező: igen
   - típusa: szám<br>
   
 A fájl beolvasása aszinkron legyen!
