@@ -71,7 +71,6 @@ Elsőként olvasd végig az összes pontot!
     ```
 
 9. Kicsit algoritmizáljunk! Nézd meg, hogy melyik könyvtárban állsz a pwd() parancs segítségével. Hozz létre egy .js kiterjesztésű szöveges fájlt az adott könyvtárban! (Használhatsz majd abszolút elérési utat is később.) Bármilyen szerkesztő, IDEA megfelelő a szerkesztésre. Készíts el benne egy függvényt (ne felejtsd el meghívni a fájl végén), amely tartalmazzon egy listát benne a te filmjeid címeivel (figyelj a pontos címek megadására). Kiindulásként egy kis „segédkép”:
-A képen szöveg látható  Automatikusan generált leírás
 
     ![9](/mongo-feladat-01/img/9.png)
 
@@ -85,7 +84,6 @@ A képen szöveg látható  Automatikusan generált leírás
     ```
 
 10. Folytasd a script írását! Cél, hogy mindegyik film különböző éveket kapjon az adatbázisban, de a filmek hármasával egy évtizedben legyenek. Törekedj a funkcionális egyszerű kódra. Futtasd le a Mongo shell-ben a scriptet a load() parancs segítségével. Utána kérdezd le az adatbázisodat ellenőrizni az eredményt. Íme egy lehetséges elvárt eredmény:
-A képen szöveg látható  Automatikusan generált leírás
 
     ![10](/mongo-feladat-01/img/10.png)
 
