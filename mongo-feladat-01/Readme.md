@@ -20,10 +20,10 @@ Elsőként olvasd végig az összes pontot!
 
     ```
   db.movies.save([
-      {title: "Jurassic Park", category: "fantasy", director: "Steven Spilberg"},
-      {title: "E.T.", category: "fantasy", director: "Steven Spilberg"},
-      {title: "Schindler listája", category: "action", director: "Steven Spilberg"},
-      {title: "Kapj el, ha tudsz", category: "action", director: "Steven Spilberg"},
+      {title: "Jurassic Park", category: "fantasy", director: "Steven Spielberg"},
+      {title: "E.T.", category: "fantasy", director: "Steven Spielberg"},
+      {title: "Schindler listája", category: "action", director: "Steven Spielberg"},
+      {title: "Kapj el, ha tudsz", category: "action", director: "Steven Spielberg"},
       {title: "A zöldfülű", category: "action", director: "Clint Eastwood"},
       {title: "Sully – Csoda a Hudson folyón", category: "action", director: "Clint Eastwood"},
       {title: "Elcserélt életek", category: "romantic", director: "Clint Eastwood"},
