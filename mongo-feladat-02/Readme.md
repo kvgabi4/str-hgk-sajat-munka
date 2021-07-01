@@ -3,15 +3,38 @@
 **Normalization elve**: Csak a közvetlen összetartozó elemeket tároljuk egy táblázatban (listában). Minél összetettebb egy adat (több tulajdonsággal rendelkezhet, pl.: rendezőnek lehet neve, díjai, filmjei, születési adatai), annál inkább külön listába kell kiszervezni a tárolását.
 
 1. Készíts el egy „directors” listát, amelyben filmrendezőket fogunk tárolni!
+
+    ```
+    db.directors.find()
+    ```
+
 2. Ments el benne 3 „rendező” dokumentumot az insertOne() parancs segítségével:
 - "_id": egész szám 1-estől indulva
 - "name": Steven Spielberg, Clint Eastwood, James Cameron
 - "birthYear": születési év (tetszőlegesen megadott egész szám)
 - "movies": kezdetben egy üres lista
+
+    ```
+    db.directors.insertOne({"_id": 1, "name": "Steven Spielberg", "birthYear": 1946, "movies": []})
+
+    db.directors.insertOne({"_id": 2, "name": "Clint Eastwood", "birthYear": 1930, "movies": []})
+
+    db.directors.insertOne({"_id": 3, "name": "James Cameron", "birthYear": 1954, "movies": []})
+    ```
+    
 4. Frissítsd a rendezők dokumentumait, helyezd el a „movies” listájukba a megfelelő filmek id-jait (ha ObjectId-t használsz, akkor figyelj arra, hogy ObjectId-ként mentsd el őket). Tipp: kérdezd le a rendezőket, és alájuk listázd a filmeket úgy, hogy csak az id-jük és a rendező nevét adja vissza a lekérdezés:
 
 ![1](/mongo-feladat-02/img/1.png)
+  
 
+  ```
+  db.directors.find({}).forEach(director => {
+    db.movies.find({director: director.name}, {_id: 1})
+    .forEach(id => {
+      db.directors.updateOne({_id: director._id},{$push: {movies: id._id}})
+      })
+  })
+  ```
 
 5. Ha frissítetted a rendezőket, ellenőrzés gyanánt kérdezd le a dokumentumokat a „directors” listából (használd a pretty() metódust a szebb megjelenítéshez)! Ehhez hasonló eredményt kell látnod:
 
