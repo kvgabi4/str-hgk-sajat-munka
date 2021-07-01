@@ -40,17 +40,102 @@
 
 ![2](/mongo-feladat-02/img/2.png)
 
+   ```
+   db.directors.find().pretty()
+   ```
+    
+
 6. **Ha elkészültél a rendezői listával**, frissítsd a movies listát („táblázatot”): távolítsd el a director mezőt ($unset operátor segítségével). Ezentúl a rendezőn keresztül fogjuk elérni a hozzájuk tartozó filmeket.
+
+    ```
+    db.movies.updateMany({}, {$unset: {director: 0}})
+    ```
+
 7. Kérdezd le az egy bizonyos év előtt készült filmeket, majd az egy bizonyos év után készült filmeket! ($gt, $gte, $lt, $lte)
+
+    ```
+    db.movies.find({releaseYear: {$gt: 2000}})
+    db.movies.find({releaseYear: {$gte: 1990}})
+    db.movies.find({releaseYear: {$lt: 2000}})
+    db.movies.find({releaseYear: {$lte: 1990}})
+    ```
+
 8. Kérdezz le két év között készült filmeket! (Próbáld ki $and operátorral is!)
+
+    ```
+    db.movies.find({releaseYear: {$gt: 1990, $lte: 2010}})
+
+    db.movies.find({
+      $and: [
+        {releaseYear: {$gte: 1990}},
+        {releaseYear: {$lte: 2000}}
+      ]
+    })
+    
+    ```
+
 9. Kérdezz le két év közötti filmeket, amelyek egy bizonyos kategóriával rendelkeznek!
+
+    ```
+    db.movies.find({category: "ACTION", releaseYear: {$gt: 1990, $lt: 2010}})
+
+    db.movies.find({
+      category: "ROMANTIC",
+      $and: [
+        {releaseYear: {$gte: 2000}},
+        {releaseYear: {$lte: 2010}}
+      ]
+    })
+    ```
+
 10. Kérdezd le a filmeket, amelyeknek a kategóriája NEM fantasy ($ne)!
+
+    ```
+    db.movies.find({category: {$ne: "FANTASY"}})
+    ```
 
 **Projection**: egy lekérdezés során van, hogy érzékeny adatainkat nem akarjuk elküldeni, vagy csak nincs okunk minden tulajdonságot lekérni egy dokumentumról. A szerveroldalról megjelenített adatok kezelése ezt a célt szolgálja.
 
 11. Írj egy lekérdezést, amely visszaadja az egy konkrét időpont előtt készült filmek címét és kategóriáját (más mező ne jelenjen meg), amelyeknek a kategóriája „ROMANTIC” vagy „ACTION” ($in operátor vagy $or operátor is).
+
+    ```
+    db.movies.find(
+      {releaseYear: {$lte: 2010}, 
+      $or: [
+        {category: "ROMANTIC"},
+        {category: "ACTION"}
+      ]},
+      {_id: 0, title: 1, category: 1}
+    )
+
+    db.movies.find(
+      {releaseYear: {$lte: 2010}, 
+      category: {$in: ["ROMANTIC","ACTION"]}},
+      {_id: 0, title: 1, category: 1}
+    )
+    ```
+
 12. Írj egy lekérdezést a directors listára, amelyben elkéred a rendezők nevét és a filmek _id-ját (más mező ne jelenjen meg).
+
+    ```
+    db.directors.find(
+      {},
+      {name: 1, _id: 1}
+    )
+
+    db.directors.find(
+      {},
+      {name: 1}
+    )
+    ```
+
 13. Írj egy lekérdezést, amely visszaadja a Steven Spielberg filmrendező által rendezett filmek adatait, kivéve a ratings-et. (Most elég, ha lekérdezed először a rendező film id-jait, majd a fő lekérdezésben megadott paraméterként az id-kat).
+
+    ```
+    db.directors.find({name: "Steven Spielberg"},{movies: 1, _id: 0})[0].movies.forEach(ObjectId => {
+      db.movies.find({_id: ObjectId}, {ratings: 0})
+    })
+    ```
 
 **Adatbázis importálása .json fájlból**
 
