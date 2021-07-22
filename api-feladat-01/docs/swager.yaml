@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  version: 1.0.0
+  title: Sample Blog API
+  description: A sample blog API to illustrate REST API concepts
+servers:
+  - url: http://localhost:3000
+paths:
+  /person:
+    get:
+      description: Returns a list of people
+      responses:
+        '200':
+          description: List of people returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /person/count:
+    get:
+      description: Returns the number of vaccinated people
+      responses:
+        '200':
+          description: The number of vaccinated people returned successfully
+          content:
+            application/json:
+              schema:
+                type: integer
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /person/vaccinated:
+    get:
+      description: Returns a list of vaccinated people
+      responses:
+        '200':
+          description: List of vaccinated people returned successfully
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Person'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+    
+components:
+  schemas:
+    Person:
+      type: object
+      required:
+        - first_name
+        - last_name
+        - vaccine
+      properties:
+        first_name:
+          type: string
+        last_name:
+          type: string
+        vaccine:
+          type: string
+    Error:
+      type: object
+      required:
+        - message
+        - has_error
+      properties:
+        message:
+          type: string
+        has_error:
+          type: boolean
