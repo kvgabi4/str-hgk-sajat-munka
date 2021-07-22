@@ -10,7 +10,11 @@ controller.get('/', (req, res) => {
 controller.get('/count', (req, res) => {
     const vaccinatedPeople = data.filter(person => person.vaccine)
     res.json(vaccinatedPeople.length);
-    // res.json(data);
+});
+
+controller.get('/vaccinated', (req, res) => {
+    const vaccinatedPeople = data.filter(person => person.vaccine)
+    res.json(vaccinatedPeople);
 });
 
 module.exports = controller;
