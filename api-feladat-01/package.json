@@ -1,0 +1,15 @@
+{
+  "name": "api-feladat-01",
+  "version": "1.0.0",
+  "description": "Készíts egy egyszerű, működő ESZT (Egészségügyi Szuri Tár) API alkalmazást, amellyel nyilvántarthatjuk, melyik személy milyen védőoltást kapott az országban.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "4.17.1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
