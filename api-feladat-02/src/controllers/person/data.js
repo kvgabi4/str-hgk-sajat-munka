@@ -1,0 +1,67 @@
+module.exports = [{
+    "id": 1,
+    "first_name": "Antal",
+    "last_name": "Daróczy",
+    "vaccine": "Pfizer"
+}, {
+    "id": 2,
+    "first_name": "Olga",
+    "last_name": "Juhász",
+    "vaccine": "Moderna"
+}, {
+    "id": 3,
+    "first_name": "Tibor",
+    "last_name": "Huszár"
+}, {
+    "id": 4,
+    "first_name": "Tünde",
+    "last_name": "Kiss",
+    "vaccine": "Sinopharm"
+}, {
+    "id": 5,
+    "first_name": "Júlia",
+    "last_name": "Kis",
+    "vaccine": "Sinopharm"
+}, {
+    "id": 6,
+    "first_name": "Vanda",
+    "last_name": "Nagy",
+    "vaccine": "AstraZeneca"
+}, {
+    "id": 7,
+    "first_name": "Péter",
+    "last_name": "Kocsis"
+}, {
+    "id": 8,
+    "first_name": "Mária",
+    "last_name": "Horváth",
+    "vaccine": "Pfizer"
+}, {
+    "id": 9,
+    "first_name": "Eszter",
+    "last_name": "Kelemen",
+    "vaccine": "Szputnyik V"
+}, {
+    "id": 10,
+    "first_name": "Virág",
+    "last_name": "Varga",
+    "vaccine": "Szputnyik V"
+}, {
+    "id": 11,
+    "first_name": "László",
+    "last_name": "Tóth",
+    "vaccine": "AstraZeneca"
+}, {
+    "id": 12,
+    "first_name": "Levente",
+    "last_name": "Tóth"
+}, {
+    "id": 13,
+    "first_name": "Jolán",
+    "last_name": "Szép"
+}, {
+    "id": 14,
+    "first_name": "Mátyás",
+    "last_name": "Lipták",
+    "vaccine": "Sinopharm"
+}];
