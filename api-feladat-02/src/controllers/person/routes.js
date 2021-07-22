@@ -62,5 +62,16 @@ controller.put('/:id/:vaccine', (req, res, next) => {
     res.json(data[index]);
 });
 
+// Delete people on the basis of a vaccine.
+controller.delete('/:vaccine', (req, res, next) => {
+    const notThatVaccine = data.filter(p => p.vaccine !== req.params.vaccine);
+    console.log(notThatVaccine);
+    if (!notThatVaccine) {
+        return next(new createError.NotFound("People are not found"));
+    }
+    res.json(notThatVaccine);
+});
+
+
 
 module.exports = controller;
