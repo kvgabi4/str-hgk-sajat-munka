@@ -7,6 +7,7 @@ servers:
   - url: http://localhost:3000
 paths:
   /person:
+    # api-feladat-01
     get:
       description: Returns a list of people
       responses:
@@ -24,6 +25,35 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+    # api-feladat-02
+    post:
+      description: Creates a new person
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      responses:
+        '201':
+          description: Person has been created successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  # api-feladat-01
   /person/count:
     get:
       description: Returns the number of vaccinated people
@@ -40,6 +70,7 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
+  # api-feladat-01
   /person/vaccinated:
     get:
       description: Returns a list of vaccinated people
@@ -58,7 +89,47 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Error'
-    
+  # api-feladat-02
+  /person/{:id}/{:vaccine}:
+    put:
+      description: Updates a person's vaccine type
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+        - name: vaccine
+          in: path
+          required: true
+          schema:
+            type: string
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Person'
+      responses:
+        '201':
+          description: Person has been updated successfully
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Person'
+        '400':
+          description: Invalid request
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        '500':
+          description: Internal server error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
 components:
   schemas:
     Person:
