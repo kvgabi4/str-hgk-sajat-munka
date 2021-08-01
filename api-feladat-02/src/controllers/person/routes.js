@@ -47,18 +47,15 @@ controller.put('/:id/:vaccine', (req, res, next) => {
     const id = req.params.id;
     const vaccine = req.params.vaccine;
     const index = data.findIndex(p => p.id === parseInt(id));
-    const { first_name, last_name } = req.body;
-    if (!last_name || !first_name) {
+    // const { first_name, last_name } = data[index];
+    if (!id || !vaccine) {
         return next(
             new createError.BadRequest("Missing properties!")
         );
     }
-    data[index] = {
-        id,
-        first_name,
-        last_name,
-        vaccine
-    };
+    data[index].id = id;
+    data[index].vaccine = vaccine;
+    console.log(data[index])
     res.json(data[index]);
 });
 
