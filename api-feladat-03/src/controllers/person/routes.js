@@ -1,10 +1,14 @@
 const express = require('express');
 const data = require('./data.json');
+const createError = require("http-errors");
 
 const controller = express.Router();
 
 // Get people.
-controller.get('/', (req, res) => {
+controller.get('/', (req, res, next) => {
+    if (!data) {
+        return next(new createError.NotFound("Persons are not found"));
+    };
     res.json(data);
 });
 
@@ -15,14 +19,20 @@ controller.get('/count', (req, res) => {
 });
 
 // Get vaccinated people.
-controller.get('/vaccinated', (req, res) => {
+controller.get('/vaccinated', (req, res, next) => {
     const vaccinatedPeople = data.filter(person => person.vaccine)
+    if (!vaccinatedPeople) {
+        return next(new createError.NotFound("Persons are not found"));
+    };
     res.json(vaccinatedPeople);
 });
 
 // Get one person. Whether the person has been vaccinated.
-controller.get('/:id/vaccinated', (req, res) => {
+controller.get('/:id/vaccinated', (req, res, next) => {
     const person = data.find(p => p.id === parseInt(req.params.id));
+    if (!person) {
+        return next(new createError.NotFound("Person is not found"));
+    };
     res.json(person.vaccine ? true : false);
 });
 
@@ -47,13 +57,11 @@ controller.put('/:id/:vaccine', (req, res, next) => {
     const id = req.params.id;
     const vaccine = req.params.vaccine;
     const index = data.findIndex(p => p.id === parseInt(id));
-    // const { first_name, last_name } = data[index];
     if (!id || !vaccine) {
         return next(
             new createError.BadRequest("Missing properties!")
         );
-    }
-    data[index].id = id;
+    };
     data[index].vaccine = vaccine;
     console.log(data[index])
     res.json(data[index]);
