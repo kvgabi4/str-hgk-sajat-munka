@@ -15,6 +15,7 @@ mongoose.Promise = global.Promise;
 app.use(bodyParser.json());
 
 app.use('/person', require('./controllers/person/routes'));
+app.use('/vaccine', require('./controllers/vaccine/routes'));
 
 // Swagger.
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));

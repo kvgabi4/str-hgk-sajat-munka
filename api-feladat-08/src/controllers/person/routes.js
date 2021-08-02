@@ -1,5 +1,5 @@
 const express = require('express');
-const data = require('./data.json');
+//const data = require('./data.json');
 const Person = require('../../models/person.model');
 const createError = require("http-errors");
 const logger = require('../../config/logger');
@@ -17,7 +17,7 @@ controller.get('/', async (req, res) => {
 // Get the number of vaccinated people.
 controller.get('/count', async (req, res) => {
     const people = await Person.find();
-    const vaccinatedPeople = people.filter(person => person.vaccine);
+    const vaccinatedPeople = people.filter(person => JSON.stringify(person.vaccine) !== '{}');
     logger.debug(`The number of vaccinated people are ${vaccinatedPeople.length}.`);
     res.json(vaccinatedPeople.length);
 });
@@ -25,7 +25,7 @@ controller.get('/count', async (req, res) => {
 // Get vaccinated people.
 controller.get('/vaccinated', async (req, res, next) => {
     const people = await Person.find();
-    const vaccinatedPeople = people.filter(person => person.vaccine)
+    const vaccinatedPeople = people.filter(person => JSON.stringify(person.vaccine) !== '{}')
     if (!vaccinatedPeople) {
         return next(new createError.NotFound("Persons are not found"));
     };
@@ -39,8 +39,8 @@ controller.get('/:id/vaccinated', async (req, res, next) => {
     if (!person) {
         return next(new createError.NotFound("Person is not found"));
     };
-    logger.debug(`Indicates whether the person has been vaccinated.`);
-    res.json(person.vaccine ? true : false);
+    logger.debug(`Indicates whether the person has been vaccinated. ${person.vaccine}`);
+    res.json(JSON.stringify(person.vaccine) !== '{}' ? true : false);
 });
 
 // Create a new person.
@@ -66,9 +66,10 @@ controller.post('/', async (req, res, next) => {
 });
     
 // Update a person.
-controller.put('/:id/:vaccine', async (req, res, next) => {
+controller.put('/:id/:vaccine/:count', async (req, res, next) => {
     const id = req.params.id;
     const vaccine = req.params.vaccine;
+    const count = req.params.count;
     if (!id || !vaccine) {
         return next(
             new createError.BadRequest("Missing properties!")
@@ -77,7 +78,7 @@ controller.put('/:id/:vaccine', async (req, res, next) => {
     
     let person = {};
     try {
-        person = await Person.findByIdAndUpdate(id, {vaccine: vaccine}, {
+        person = await Person.findByIdAndUpdate(id, { vaccine: { vaccine, count }}, {
             new: true,
             useFindAndModify: false
         });
@@ -95,8 +96,7 @@ controller.delete('/:vaccine', async (req, res, next) => {
 
     let notThatVaccine = {};
     try {
-        notThatVaccine = await Person.deleteMany({vaccine: { $ne: vaccine }});
-        // const notThatVaccine = await Person.filter(p => p.vaccine !== req.params.vaccine);
+        notThatVaccine = await Person.deleteMany({ 'vaccine.vaccine': { $ne: vaccine } });
     } catch (err) {
         return next(new createError.NotFound("People are not found"));
     }
