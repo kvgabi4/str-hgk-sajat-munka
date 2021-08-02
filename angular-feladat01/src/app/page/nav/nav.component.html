@@ -1,6 +1,6 @@
 <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-light">
   <a
-    class="navbar-brand"
+    class="navbar-brand mx-3"
     routerLink="/"
   >UserManager</a>
   <button
@@ -18,7 +18,7 @@
     class="collapse navbar-collapse"
     id="navbarSupportedContent"
   >
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav me-auto">
       <li
         *ngFor="let link of navigation"
         class="nav-item"
@@ -31,8 +31,8 @@
         >{{ link.label }}</a>
       </li>
     </ul>
-    <!-- <ul class="my-2 my-lg-0 right-buttons">
-      <li *ngIf="user" class="mr-1">
+    <ul class="my-2 my-lg-0 right-buttons me-3">
+      <li *ngIf="user" class="me-1">
         <span>Hi {{ user?.first_name }}!</span>
       </li>
       <li *ngIf="!user">
@@ -45,6 +45,6 @@
           <i class="fa fa-sign-out"></i>
         </button>
       </li>
-    </ul> -->
+    </ul>
   </div>
 </nav>
