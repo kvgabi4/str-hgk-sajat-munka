@@ -7,6 +7,11 @@ const swaggerUi = require('swagger-ui-express');
 const YAML = require('yamljs');
 const swaggerDocument = YAML.load('./docs/swager.yaml');
 
+const morgan = require("morgan");
+const logger = require('./config/logger');
+const mongoose = require("mongoose");
+mongoose.Promise = global.Promise;
+
 app.use(bodyParser.json());
 
 app.use('/person', require('./controllers/person/routes'));
@@ -24,7 +29,19 @@ app.use((err, req, res, next) => {
 	});
 });
 
-    
+
+// Database connection.
+mongoose
+    .connect('mongodb+srv://kvgabi4:NodeJS API@cluster0.38e5g.mongodb.net/myFirstDatabase?retryWrites=true&w=majority', {
+        useNewUrlParser: true,
+        useUnifiedTopology: true
+    })
+    .then( () => logger.info('MongoDB connection has been established successfully.'))
+    .catch( err => {
+        logger.error(err);
+        process.exit();
+});
+  
 
 app.listen(port, () => {
     console.log(`App listening at http://localhost:${port}`);
