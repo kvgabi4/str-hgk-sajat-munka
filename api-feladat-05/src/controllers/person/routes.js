@@ -1,5 +1,5 @@
 const express = require('express');
-const data = require('./data.json');
+// const data = require('./data.json');
 const Person = require('../../models/person.model');
 const createError = require("http-errors");
 const logger = require('../../config/logger');
