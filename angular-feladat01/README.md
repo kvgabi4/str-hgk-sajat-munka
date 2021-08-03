@@ -1,4 +1,5 @@
 ## **Gyakorlófeladat**
+
 Készíts egy egyszerű, Angular alapú alkalmazást. Az alkalmazás célja, hogy ki- és bejelentkezést nyújtson a felhasználóknak.
 
 1. Oldalak:
