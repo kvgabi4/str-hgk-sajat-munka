@@ -1,0 +1,52 @@
+{
+  "users": [
+    {
+      "email": "test@google.com.hk",
+      "password": "",
+      "id": 6,
+      "first_name": "Aurilia",
+      "last_name": "Faircliff",
+      "role": "3"
+    },
+    {
+      "email": "kgerber0@google.com.hk",
+      "password": "$2a$10$N46il6TgEsrGDYGp/uu2bej3YC4.6My8npkdQGsS00mbfTvCEzDtq",
+      "id": 1,
+      "first_name": "Kincaid",
+      "last_name": "Gerber",
+      "role": 3
+    },
+    {
+      "email": "ljohnsey1@gravatar.com",
+      "password": "$2a$10$bS4mjIy6yQV88GmHVuefK.qzuGz6DLrH7G43gwCriMRrdCu8nMq46",
+      "id": 2,
+      "first_name": "Lorry",
+      "last_name": "Johnsey",
+      "role": 2
+    },
+    {
+      "email": "cmoulsdall2@nydailynews.com",
+      "password": "$2a$10$j2xzOPgvdnwRhdWkxSXlyuKpH8XB5Xg.EZGyVg.naeUrQONZwjutO",
+      "id": 3,
+      "first_name": "Cherice",
+      "last_name": "Moulsdall",
+      "role": 1
+    },
+    {
+      "email": "vbernadzki3@nbcnews.com",
+      "password": "",
+      "id": 4,
+      "first_name": "Vic",
+      "last_name": "Bernadzki",
+      "role": "3"
+    },
+    {
+      "email": "hbrownlea4@accuweather.com",
+      "password": "$2a$10$KyI1zmy.a9RL6PpCTxxX.OHAUgEq8lQOfDL4Q83NZ9Cvvc9oBecbe",
+      "id": 5,
+      "first_name": "Hyatt",
+      "last_name": "Brownlea",
+      "role": 2
+    }
+  ]
+}
