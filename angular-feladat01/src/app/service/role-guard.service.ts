@@ -16,7 +16,7 @@ export class RoleGuardService {
     const expectedRole = route.data.expectedRole;
 
     if (
-      !this.auth.currentUserValue ||
+      !this.auth.currentUserValue || this.auth.currentUserValue.role &&
       this.auth.currentUserValue.role < expectedRole
     ) {
       this.router.navigate(['forbidden']);

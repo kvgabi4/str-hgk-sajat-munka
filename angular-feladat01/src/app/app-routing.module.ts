@@ -1,6 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { AdminComponent } from './page/admin/admin.component';
 import { EditorComponent } from './page/editor/editor.component';
+import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 import { HomeComponent } from './page/home/home.component';
 import { LoginComponent } from './page/login/login.component';
 import { AuthGuardService } from './service/auth-guard.service';
@@ -16,10 +18,14 @@ const routes: Routes = [
     path: 'login',
     component: LoginComponent,
   },
-  // {
-  //   path: 'users',
-  //   component: UsersComponent,
-  // },
+  {
+    path: 'admin',
+    component: AdminComponent,
+    canActivate: [AuthGuardService, RoleGuardService],
+    data: {
+      expectedRole: 2,
+    }
+  },
   {
     path: 'editor/:id',
     component: EditorComponent,
@@ -27,12 +33,11 @@ const routes: Routes = [
     data: {
       expectedRole: 3,
     }
-
   },
-  // {
-  //   path: 'forbidden',
-  //   component: ForbiddenComponent,
-  // },
+  {
+    path: 'forbidden',
+    component: ForbiddenComponent,
+  },
   {
     path: '**',
     redirectTo: '',

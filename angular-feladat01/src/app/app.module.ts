@@ -11,6 +11,7 @@ import { EditorComponent } from './page/editor/editor.component';
 import { JwtInterceptorService } from './service/jwt-interceptor.service';
 import { FormsModule } from '@angular/forms';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
+import { AdminComponent } from './page/admin/admin.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { ForbiddenComponent } from './page/forbidden/forbidden.component';
     HomeComponent,
     LoginComponent,
     EditorComponent,
-    ForbiddenComponent
+    ForbiddenComponent,
+    AdminComponent
   ],
   imports: [
     BrowserModule,
