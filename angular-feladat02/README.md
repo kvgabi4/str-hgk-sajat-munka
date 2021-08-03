@@ -25,4 +25,4 @@ Az alkalmazás filmeket kezel, ilyen adatokat generálj a mockaroo segítségév
   ![state-management-lifecycle](state-management-lifecycle.png)
 
   - Ne feledd, az adatok csak egy irányba mozoghatnak. Ezért nem egyszerűen csak lekérjük őket, hanem először dispatch-elünk egy action-t, majd a hatására beöltődő adatokat szelektáljuk, például így:
-  - [a hivatkozott sor és az alatta lévő] (https://github.com/cherryApp/angular-advanced-course/blob/03f4efcb7a1078ae1fa7222d03fd36eb2b493bd6/chapter03-ngrx/src/app/page/users/users.component.ts#L37)
+  - [a hivatkozott sor és az alatta lévő](https://github.com/cherryApp/angular-advanced-course/blob/03f4efcb7a1078ae1fa7222d03fd36eb2b493bd6/chapter03-ngrx/src/app/page/users/users.component.ts#L37)
