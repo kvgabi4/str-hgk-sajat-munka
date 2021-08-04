@@ -53,43 +53,43 @@
     {
       "id": 1,
       "title": "Mennyei csodák",
-      "style": "family",
+      "category": "family",
       "year": 2016
     },
     {
       "id": 2,
       "title": "Fireproof",
-      "style": "drama",
+      "category": "drama",
       "year": 2008
     },
     {
       "id": 3,
       "title": "A fegyvertelen katona",
-      "style": "drama",
+      "category": "action",
       "year": 2016
     },
     {
       "id": 4,
       "title": "Jézus élete",
-      "style": "biopic",
+      "category": "biopic",
       "year": 1979
     },
     {
       "id": 5,
       "title": "Végtelen hit",
-      "style": "family",
+      "category": "family",
       "year": 2006
     },
     {
       "id": 6,
       "title": "A dárda hegye",
-      "style": "drama",
+      "category": "drama",
       "year": 2005
     },
     {
       "id": 7,
       "title": "War Room",
-      "style": "family",
+      "category": "family",
       "year": 2015
     }
   ]

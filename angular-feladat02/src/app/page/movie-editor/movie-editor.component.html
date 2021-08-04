@@ -1,0 +1,31 @@
+<div class="row">
+  <div class="col-12 col-md-6 offset-md-3">
+    <form *ngIf="(movie$ | async) as movie" #movieForm="ngForm" (ngSubmit)="goBackward()" class="form">
+      <div class="form-group"><label for="">Title</label><input
+          type="text"
+          [value]="movie.title"
+          name="first_name"
+          class="form-control mt-1 mb-3"
+          readonly
+        ></div>
+      <div class="form-group"><label for="">Category</label><input
+          type="text"
+          [value]="movie.category"
+          name="last_name"
+          class="form-control mt-1 mb-3"
+          readonly
+        ></div>
+      <div class="form-group"><label for="">Release year</label><input
+          type="email"
+          [value]="movie.year"
+          name="email"
+          class="form-control mt-1 mb-3"
+          readonly
+        ></div>
+
+      <button type="submit" class="btn btn-primary mt-3">
+        Go back!
+      </button>
+    </form>
+  </div>
+

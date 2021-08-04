@@ -13,6 +13,12 @@ import { FormsModule } from '@angular/forms';
 import { ForbiddenComponent } from './page/forbidden/forbidden.component';
 import { AdminComponent } from './page/admin/admin.component';
 
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+import { MovieEffect } from './store/movie/MovieEffects';
+import { MovieReducer } from './store/movie/MovieReducers';
+import { MovieEditorComponent } from './page/movie-editor/movie-editor.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,13 +27,17 @@ import { AdminComponent } from './page/admin/admin.component';
     LoginComponent,
     EditorComponent,
     ForbiddenComponent,
-    AdminComponent
+    AdminComponent,
+    MovieEditorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    FormsModule
+    FormsModule,
+    StoreModule.forRoot({ movie: MovieReducer }),
+    EffectsModule.forRoot([ MovieEffect ]),
+
   ],
   providers: [
     {provide: HTTP_INTERCEPTORS, useClass: JwtInterceptorService, multi: true},
