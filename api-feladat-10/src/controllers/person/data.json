@@ -1,0 +1,53 @@
+[{
+    "first_name": "Antal",
+    "last_name": "Daróczy",
+    "vaccine": "Pfizer"
+}, {
+    "first_name": "Olga",
+    "last_name": "Juhász",
+    "vaccine": "Moderna"
+}, {
+    "first_name": "Tibor",
+    "last_name": "Huszár"
+}, {
+    "first_name": "Tünde",
+    "last_name": "Kiss",
+    "vaccine": "Sinopharm"
+}, {
+    "first_name": "Júlia",
+    "last_name": "Kis",
+    "vaccine": "Sinopharm"
+}, {
+    "first_name": "Vanda",
+    "last_name": "Nagy",
+    "vaccine": "AstraZeneca"
+}, {
+    "first_name": "Péter",
+    "last_name": "Kocsis"
+}, {
+    "first_name": "Mária",
+    "last_name": "Horváth",
+    "vaccine": "Pfizer"
+}, {
+    "first_name": "Eszter",
+    "last_name": "Kelemen",
+    "vaccine": "Szputnyik V"
+}, {
+    "first_name": "Virág",
+    "last_name": "Varga",
+    "vaccine": "Szputnyik V"
+}, {
+    "first_name": "László",
+    "last_name": "Tóth",
+    "vaccine": "AstraZeneca"
+}, {
+    "first_name": "Levente",
+    "last_name": "Tóth"
+}, {
+    "first_name": "Jolán",
+    "last_name": "Szép"
+}, {
+    "first_name": "Mátyás",
+    "last_name": "Lipták",
+    "vaccine": "Sinopharm"
+}]
